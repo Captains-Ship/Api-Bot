@@ -62,7 +62,6 @@ async def bored(ctx):
 async def reddit(ctx, *, sub="memes"):
         """Reddit API integration"""
         with urllib.request.urlopen(f"https://www.reddit.com/r/{sub}/new.json") as url:
-                if  ctx.author.id !=  "721745855207571627" and "porn" or "nsfw" not in sub.lower():
                     jsondata = json.loads(url.read().decode())
                     data = jsondata["data"]
                     children = data["children"]
