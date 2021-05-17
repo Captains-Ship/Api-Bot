@@ -90,8 +90,7 @@ async def reddit(ctx, *, sub="memes"):
                             embed.set_footer(text="Post by " + creator)
                             embed.set_author(name="Videos and galleries (multiple images 1 post) are NOT supported!")
                             await ctx.reply(embed=embed)
-                else:
-                        await ctx.reply("no")
+
 
 
 
