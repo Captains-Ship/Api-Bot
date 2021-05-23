@@ -1,4 +1,3 @@
-import PySimpleGUI as sg
 import urllib.request, json
 import discord
 import random
@@ -19,31 +18,27 @@ import textwrap
 import asyncio
 import json
 import datetime
-import random as aliasforrandom
+import random as r
 
 
 client = commands.Bot(command_prefix ="c!", intents=discord.Intents.all())
 
-"""
-window = sg.Window(title="Hello World", layout=[[]], margins=(500, 300)).read()
+
 
 @client.event
 async def on_ready():
-        print("l")
+        print("ready")
 
-@client.event
-async def on_message(msg):
-    sg.Print(f"\n{msg.author}\n{msg.channel}\n{msg.content}")
-"""
+
 
 @client.command()
 async def joke(ctx):
         """get a chuck norris joke"""
         with urllib.request.urlopen("http://api.icndb.com/jokes/random") as url:
             data = json.loads(url.read().decode())
-            uwu = data["value"]
-            owo = uwu["joke"]
-            await ctx.reply(owo)
+            value = data["value"]
+            joke = uwu["joke"]
+            await ctx.reply(joke)
 
 
 @client.command()
@@ -51,8 +46,8 @@ async def bored(ctx):
         """Get an activity to do"""
         with urllib.request.urlopen("https://www.boredapi.com/api/activity") as url:
             data = json.loads(url.read().decode())
-            uwu = data["activity"]
-            await ctx.reply(uwu)
+            activity = data["activity"]
+            await ctx.reply(activity)
 
 
 
@@ -65,7 +60,7 @@ async def reddit(ctx, *, sub="memes"):
                     jsondata = json.loads(url.read().decode())
                     data = jsondata["data"]
                     children = data["children"]
-                    postnum = aliasforrandom.randint(0, 24)
+                    postnum = r.randint(0, 24)
                     post = children[postnum]
                     postdata = post["data"]
                     nsfwcheck = postdata["over_18"]
